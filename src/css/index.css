@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.menu-item::after {
+    @apply w-full absolute left-0 bottom-0 bg-primary origin-bottom-left h-[2px] ease-in-out transition-transform duration-300 scale-x-0 content-[''];
+}
+
 .signform-input {
     @apply relative h-12 w-full mt-4;
 
@@ -17,7 +21,7 @@
         }
 
         &:is(:valid) {
-            @apply border-teal-600;
+            @apply border-primary;
         }
 
         &:not([value=""]) {
