@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { useLogin } from '../contexts/UserContext.jsx';
 
 const SignForm = () => {
+  const handleLogin = useLogin() || function () {};
   const [{ email, password }, setFormState] = useState({
     email: '',
     password: '',
   });
-
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -21,9 +22,8 @@ const SignForm = () => {
       e.preventDefault();
       if (!email || !password) throw new Error('Please fill out all the fields!');
 
-      // TODO: ADD FUNCTION TO DO THE MAGIC LOGIN
+      handleLogin(email, password);
 
-      // Reset the Form
       setFormState(() => ({
         email: '',
         password: '',

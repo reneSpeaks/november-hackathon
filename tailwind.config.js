@@ -9,10 +9,6 @@ export default {
   },
   daisyui: {
     themes: [
-      "light",
-      "dark",
-      "autumn",
-      "cupcake",
       "emerald",
     ]
   },

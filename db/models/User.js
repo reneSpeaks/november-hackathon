@@ -5,7 +5,7 @@ export default (sequelize) => {
   return sequelize.define('User', {
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         validate: {
           len: {
             args: [2, 30],
