@@ -65,5 +65,7 @@ export const deleteOne = asyncWrapper(async (req, res) => {
   if (!deleted) {
     throw new ErrorResponse("Entry not found", 404);
   }
-  res.status(204).end();
+
+  const responseMessage = { message: `Entry with id ${id} was deleted successfully` }
+  res.status(200).json(responseMessage);
 });
