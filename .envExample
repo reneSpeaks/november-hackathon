@@ -1,0 +1,5 @@
+PORT=3001
+DB=postgresql://neondb_owner:30SVGwiPAyft@ep-sparkling-dream-a204kejr.eu-central-1.aws.neon.tech/neondb?sslmode=require
+JWT_SECRET=BANANAS
+VITE_API_URL=http://localhost:3001
+VITE_USERSTORAGE=userStorage
