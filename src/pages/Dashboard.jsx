@@ -4,6 +4,7 @@ import { IoMdSettings } from "react-icons/io"
 import { GrProjects } from "react-icons/gr"
 import { CgProfile } from "react-icons/cg"
 import { IoInformationCircleOutline, IoLogOutOutline } from "react-icons/io5"
+import { useCollapse } from "react-collapsed"
 
 const data = [
   {
@@ -65,6 +66,7 @@ const data = [
 ]
 
 const Dashboard = () => {
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
   return (
     <section
       id="hero"
@@ -143,30 +145,36 @@ const Dashboard = () => {
               <div className="bg-gray-200 rounded-lg p-3">
                 <h1>Activities</h1>
               </div>
-              <div className="grid grid-cols-1 xl:grid-cols-2  bg-gray-200 rounded-lg">
-                {data.map((data) => (
-                  <div className="flex gap-5 m-3 p-4" id={data.user_id}>
-                    <div className="flex flex-col justify-center items-center gap-2">
-                      <img
-                        className="rounded-full"
-                        src={data.photo_profile}
-                        alt={data.user_name}
-                      />
-                      <p className="text-sm">{data.user_name}</p>
+              <div>
+                <button {...getToggleProps()}>Progress</button>
+                <div
+                  {...getCollapseProps()}
+                  className="grid grid-cols-2 xl:grid-cols-2 bg-gray-200 rounded-lg"
+                >
+                  {data.map((data) => (
+                    <div className="flex gap-5 m-3 p-4" id={data.user_id}>
+                      <div className="flex flex-col justify-center items-center gap-2">
+                        <img
+                          className="rounded-full"
+                          src={data.photo_profile}
+                          alt={data.user_name}
+                        />
+                        <p className="text-sm">{data.user_name}</p>
+                      </div>
+                      <div className="flex flex-col gap-4">
+                        <p>
+                          Points: <b>{data.activity.points}</b>
+                        </p>
+                        <p>Activity: {data.activity.name}</p>
+                        <progress
+                          className="progress progress-success w-45"
+                          value={data.activity.progress}
+                          max="100"
+                        ></progress>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-4">
-                      <p>
-                        Points: <b>{data.activity.points}</b>
-                      </p>
-                      <p>Activity: {data.activity.name}</p>
-                      <progress
-                        className="progress progress-success w-45"
-                        value={data.activity.progress}
-                        max="100"
-                      ></progress>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
