@@ -48,6 +48,20 @@ const data = [
       id: "12345abc-c16c-4c7a-a1bd-1fbb9d26abcd",
     },
   },
+  {
+    activity_id: "12345abc-c16c-4c7a-a1bd-1fbb9d26abcd",
+    id: "56789def-ad6b-460e-837c-190f52a9efgh",
+    user_id: "b1b25ea8-20cd-11eb-9215-9467eebc1234",
+    user_name: "Jane Smith",
+    photo_profile:
+      "https://picsum.photos/seed/b1b25ea8-20cd-11eb-9215-9467eebc1234/100",
+    activity: {
+      name: "Recycle paper waste",
+      points: 50,
+      progress: 90,
+      id: "12345abc-c16c-4c7a-a1bd-1fbb9d26abcd",
+    },
+  },
 ]
 
 const Dashboard = () => {
@@ -58,7 +72,7 @@ const Dashboard = () => {
       style={{ backgroundImage: "url(https://picsum.photos/1280/900)" }}
     >
       <div className="container p-10 h-screen mt-7 flex gap-5">
-        <div className="lefside w-[25%] bg-white opacity-85 border rounded-xl shadow-lg mr-8 p-4 flex flex-col gap-5 place-items-center place-content-between">
+        <div className="lefside w-[15%] bg-white opacity-85 border rounded-xl shadow-lg mr-8 p-4 flex flex-col gap-5 place-items-center place-content-between">
           <div>
             <h1>LOGO</h1>
           </div>
@@ -93,7 +107,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="rightside w-[75%] bg-white opacity-95 border rounded-xl shadow-lg p-4 flex flex-col gap-6">
+        <div className="rightside w-[85%] bg-white opacity-95 border rounded-xl shadow-lg p-4 flex flex-col gap-6">
           <div className="bg-gray-200 rounded-lg p-3 flex justify-between">
             <div className="w-[50%] flex gap-5 items-center">
               <div className="text-3xl">
