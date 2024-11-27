@@ -18,13 +18,13 @@ const Hero = () => {
     },
     {
       id: 3,
-      title: 'Renewable energies and our efforts to reduce CO² Emissions.',
+      title: 'Our efforts to reduce CO² Emissions.',
       image: '/news/chelsea-WvusC5M-TM8-unsplash.jpg'
     }
   ]
 
   return (
-    <section id="hero" className="hero relative bg-base-200 min-h-screen" style={{ backgroundImage: "url(https://picsum.photos/1280/900)" }}>
+    <section id="hero" className="hero relative bg-base-200 min-h-screen border-b-2 border-primary" style={{ backgroundImage: "url(https://picsum.photos/1280/900)" }}>
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content mt-14 lg:mt-0 relative w-full h-full flex-col lg:flex-row-reverse gap-20">
         <div className="grid grid-cols-1 grid-rows-8 lg:grid-rows-4 lg:grid-cols-5 gap-5 p-4 w-full h-4/5 max-w-7xl z-20">
