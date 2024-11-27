@@ -3,6 +3,7 @@ import Layout from './Layout.jsx';
 import Landing from './pages/Landing.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Home from './pages/Home.jsx';
+import News from './pages/News.jsx';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -11,6 +12,7 @@ const App = () => {
         <Route index element={<Landing />} />
         <Route element={<ProtectedRoute />}>
           <Route path="home" element={<Home />} />
+          <Route path="news/:id" element={<News />} />
         </Route>
       </Route>
     ),

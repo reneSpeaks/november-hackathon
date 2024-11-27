@@ -4,48 +4,61 @@ const Leaderboard = () => {
 
   const employees = [
     {
-      user_id: 1,
-      user_name: "Rene",
-      user_avatar: "https://img.daisyui.com/images/profile/demo/2@94.webp",
-      user_country: "Germany",
-      team_name: "Zemlak, Daniel and Leannon",
-      job_name: "Desktop Support Technician",
+      user : {
+        user_id: 1,
+        username: "Rene",
+        email: "rene@example.com",
+        user_avatar: "https://img.daisyui.com/images/profile/demo/2@94.webp",
+        user_country: "Germany",
+        team_name: "Zemlak, Daniel and Leannon",
+        job_name: "Desktop Support Technician",
+      },
       total_points: 12345678,
     },
     {
-      user_id: 2,
-      user_name: "Biernard",
-      user_avatar: "https://img.daisyui.com/images/profile/demo/3@94.webp",
-      user_country: "Brazil",
-      team_name: "Carroll Group",
-      job_name: "Tax Accountant",
+      user: {
+        user_id: 2,
+        user_name: "Biernard",
+        email: "biernard@example.com",
+        user_avatar: "https://img.daisyui.com/images/profile/demo/3@94.webp",
+        user_country: "Brazil",
+        team_name: "Carroll Group",
+        job_name: "Tax Accountant",
+      },
       total_points: 12345677,
     },
     {
-      user_id: 3,
-      user_name: "Tim",
-      user_avatar: "https://img.daisyui.com/images/profile/demo/4@94.webp",
-      user_country: "Brazil",
-      team_name: "Carroll Group",
-      job_name: "Organizational Talent",
+      user: {
+        user_id: 3,
+        user_name: "Tim",
+        email: "biernard@example.com",
+        user_avatar: "https://img.daisyui.com/images/profile/demo/4@94.webp",
+        user_country: "Brazil",
+        team_name: "Carroll Group",
+        job_name: "Organizational Talent",
+      },
       total_points: 12345676,
     },
     {
-      user_id: 4,
-      user_name: "Choncha",
-      user_avatar: "https://img.daisyui.com/images/profile/demo/5@94.webp",
-      user_country: "Thailand",
-      team_name: "Wyman-Ledner",
-      job_name: "Community Outreach Specialist",
+      user: {
+        user_id: 4,
+        user_name: "Choncha",
+        user_avatar: "https://img.daisyui.com/images/profile/demo/5@94.webp",
+        user_country: "Thailand",
+        team_name: "Wyman-Ledner",
+        job_name: "Community Outreach Specialist",
+      },
       total_points: 12345675,
     },
     {
-      user_id: 5,
-      user_name: "Farbod",
-      user_avatar: "https://img.daisyui.com/images/profile/demo/1@94.webp",
-      user_country: "Germany",
-      team_name: "Carroll Group",
-      job_name: "Office Assistant I",
+      user: {
+        user_id: 5,
+        user_name: "Farbod",
+        user_avatar: "https://img.daisyui.com/images/profile/demo/1@94.webp",
+        user_country: "Germany",
+        team_name: "Carroll Group",
+        job_name: "Office Assistant I",
+      },
       total_points: 12345674,
     },
   ];
@@ -68,24 +81,24 @@ const Leaderboard = () => {
               <tbody>
               {/* row 1 */}
               {employees && (employees.map((employee) => (
-                <tr key={employee.user_id} className="hover:bg-green-200">
+                <tr key={employee.user.user_id} className="hover:bg-green-200">
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle h-12 w-12">
                           <img
-                            src={employee.user_avatar}
-                            alt={employee.user_name} />
+                            src={employee.user.user_avatar}
+                            alt={employee.user.username} />
                         </div>
                       </div>
                       <div>
-                        <Link to="#" className="font-bold cursor-pointer hover:underline">{employee.user_name}</Link>
-                        <div className="text-sm opacity-50">{employee.user_country}</div>
+                        <Link to="#" className="font-bold cursor-pointer hover:underline">{employee.user.username}</Link>
+                        <div className="text-sm opacity-50">{employee.user.user_country}</div>
                       </div>
                     </div>
                   </td>
                   <td className="hidden md:block">
-                    {employee.team_name} <br /> <span className="badge badge-primary badge-sm">{employee.job_name}</span>
+                    {employee.user.team_name} <br /> <span className="badge badge-primary badge-sm">{employee.user.job_name}</span>
                   </td>
                   <td>{employee.total_points}</td>
                 </tr>
