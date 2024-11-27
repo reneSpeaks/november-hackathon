@@ -4,24 +4,32 @@ import NewsThree from '../components/NewsThree.jsx';
 
 const Hero = () => {
 
+
+  const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const news = [
     {
       news_id: 1,
+      creator_id: 1,
       news_title: "From plastic bottles to boxed water, How can you contribute?",
-      news_content: "Lorem Ipsum",
-      news_image: '/news/boxed-water-is-better-9qDtdcQoTw8-unsplash.jpg'
+      news_content: ``,
+      news_image: '/news/boxed-water-is-better-9qDtdcQoTw8-unsplash.jpg',
+      createdAt: new Date().toLocaleDateString('en-US', dateOptions),
     },
     {
       news_id: 2,
+      creator_id: 1,
       news_title: 'We support the rainforest with every step you take!',
-      news_content: "Lorem Ipsum",
-      news_image: '/news/casey-horner-4rDCa5hBlCs-unsplash.jpg'
+      news_content: ``,
+      news_image: '/news/casey-horner-4rDCa5hBlCs-unsplash.jpg',
+      createdAt: new Date().toLocaleDateString('en-US', dateOptions),
     },
     {
       news_id: 3,
+      creator_id: 1,
       news_title: 'Our efforts to reduce CO² Emissions.',
-      news_content: "Lorem Ipsum",
-      news_image: '/news/chelsea-WvusC5M-TM8-unsplash.jpg'
+      news_content: ``,
+      news_image: '/news/chelsea-WvusC5M-TM8-unsplash.jpg',
+      createdAt: new Date().toLocaleDateString('en-US', dateOptions),
     }
   ]
 
