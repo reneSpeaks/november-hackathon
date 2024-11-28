@@ -116,49 +116,12 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="bottom h-screen flex gap-10">
-            <div className=" w-[30%] p-3 flex justify-center items-end">
+            <div className=" w-full p-3 flex justify-center items-end">
               <iframe
-                src="https://copilotstudio.microsoft.com/environments/Default-0c758bb3-2645-4674-badb-e7e0f5c2b86d/bots/cr6d9_sustainabilityInsights/webchat?__version__=2"                frameborder="0"
+                src="https://copilotstudio.microsoft.com/environments/Default-0c758bb3-2645-4674-badb-e7e0f5c2b86d/bots/Default_ecoOfficeGuide/webchat?__version__=2"
+                frameborder="0"
                 className="h-full w-full rounded-lg shadow-xl"
               ></iframe>
-            </div>
-            <div className="flex flex-col gap-10 w-[70%]">
-              <div className="bg-gray-200 rounded-lg p-3">
-                <h1>User Progress</h1>
-              </div>
-              <div className="bg-gray-200 rounded-lg p-3">
-                <h1>Activities</h1>
-              </div>
-              <div>
-                <button {...getToggleProps()}>Progress</button>
-                <div{...getCollapseProps()}
-                    className="grid grid-cols-2 xl:grid-cols-2 bg-gray-200 rounded-lg"
-                >
-                  {data.map((data) => (
-                    <div className="flex gap-5 m-3 p-4" id={data.user_id}>
-                      <div className="flex flex-col justify-center items-center gap-2">
-                        <img
-                          className="rounded-full"
-                          src={data.photo_profile}
-                          alt={data.user_name}
-                        />
-                        <p className="text-sm">{data.user_name}</p>
-                      </div>
-                      <div className="flex flex-col gap-4">
-                        <p>
-                          Points: <b>{data.activity.points}</b>
-                        </p>
-                        <p>Activity: {data.activity.name}</p>
-                        <progress
-                          className="progress progress-success w-45"
-                          value={data.activity.progress}
-                          max="100"
-                        ></progress>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
