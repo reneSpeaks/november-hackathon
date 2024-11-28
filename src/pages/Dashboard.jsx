@@ -118,8 +118,7 @@ const Dashboard = () => {
           <div className="bottom h-screen flex gap-10">
             <div className=" w-[30%] p-3 flex justify-center items-end">
               <iframe
-                src="https://copilotstudio.microsoft.com/environments/Default-0c758bb3-2645-4674-badb-e7e0f5c2b86d/bots/Default_ecoOfficeGuide/webchat?__version__=2"
-                frameborder="0"
+                src="https://copilotstudio.microsoft.com/environments/Default-0c758bb3-2645-4674-badb-e7e0f5c2b86d/bots/cr6d9_sustainabilityInsights/webchat?__version__=2"                frameborder="0"
                 className="h-full w-full rounded-lg shadow-xl"
               ></iframe>
             </div>
