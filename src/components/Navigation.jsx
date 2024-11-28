@@ -1,17 +1,17 @@
-import { useRef, useState } from "react"
-import { FaBars, FaXmark } from "react-icons/fa6"
-import { useLogout } from "../contexts/UserContext.jsx"
-import { NavLink } from "react-router-dom"
+import { useRef, useState } from 'react';
+import { FaBars, FaXmark } from 'react-icons/fa6';
+import { useLogout } from '../contexts/UserContext.jsx';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navigation = ({ logo }) => {
-  const [isMobile, setIsMobile] = useState(false)
-  const checkBoxRef = useRef(null)
-  const handleLogout = useLogout()
+  const [isMobile, setIsMobile] = useState(false);
+  const checkBoxRef = useRef(null);
+  const handleLogout = useLogout();
 
   const toggleMenu = () => {
-    setIsMobile((prevState) => !prevState)
-    checkBoxRef.current.checked = !checkBoxRef.current.checked
-  }
+    setIsMobile(prevState => !prevState);
+    checkBoxRef.current.checked = !checkBoxRef.current.checked;
+  };
 
   return (
     <nav className="max-w-7xl w-full h-full flex flex-row gap-4 overflow-hidden text-primary">
@@ -34,33 +34,26 @@ const Navigation = ({ logo }) => {
                   ? "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer text-primary-content"
                   : "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
               }
-            >
-              HOME
-            </NavLink>
+            > HOME </NavLink>
           </li>
           <li>
-            <a
-              href="/dashboard"
-              className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
-            >
-              DASHBOARD
-            </a>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer text-primary-content"
+                  : "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
+              }
+            > DASHBOARD </NavLink>
           </li>
           <li>
-            <a
-              href="#"
-              className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
-            >
-              NAVLINK 3
-            </a>
-          </li>
+            <Link to="" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer" onClick={() => document.getElementById('add-activity-modal').showModal()}>ADD
+              ACTIVITY</Link></li>
           <li>
             <a
               href="#"
               className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
-            >
-              NAVLINK 4
-            </a>
+            > NAVLINK 4 </a>
           </li>
           <li>
             <button
@@ -73,18 +66,14 @@ const Navigation = ({ logo }) => {
         </ul>
       </div>
 
-      <button
-        className="flex flex-row lg:hidden items-center justify-center self-start mt-5 mr-8 gap-2 text-xl font-medium cursor-pointer font-outline"
-        onClick={toggleMenu}
-      >
+      <button className="flex flex-row lg:hidden items-center justify-center self-start mt-5 mr-8 gap-2 text-xl font-medium cursor-pointer font-outline" onClick={toggleMenu}>
         <div className="swap swap-rotate drop-shadow-[0_1px_0px_black]">
-          <input ref={checkBoxRef} type="checkbox" />
-          <FaBars className="swap-off fill-current" />
+          <input ref={checkBoxRef} type="checkbox" /> <FaBars className="swap-off fill-current" />
           <FaXmark className="swap-on fill-current" />
         </div>
       </button>
     </nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;
