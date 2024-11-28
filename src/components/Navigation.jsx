@@ -16,13 +16,49 @@ const Navigation = ({ logo }) => {
   return (
     <nav className="max-w-7xl w-full h-full flex flex-row gap-4 overflow-hidden text-primary">
       <div className="w-full flex flex-col lg:flex-row justify-between lg:items-center">
-        <img src={logo} alt="DocMorris Logo" className="max-w-48 w-full my-2 ml-2 drop-shadow-[0_1px_0px_black]" />
-        <ul className={`flex flex-col gap-2 lg:flex lg:flex-row lg:gap-10 lg:h-fit transition-h duration-500 ease-in-out text-xl px-4 mr-4 font-medium font-outline ${isMobile ? "h-48" : "h-0"}`}>
-          <li><NavLink to="/home" className={({ isActive }) => isActive ? "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer text-primary-content" : "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"}>HOME</NavLink></li>
-          <li><a href="#" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer">NAVLINK 2</a></li>
-          <li><Link to="" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer" onClick={()=>document.getElementById('add-activity-modal').showModal()}>ADD ACTIVITY</Link></li>
-          <li><a href="#" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer">NAVLINK 4</a></li>
-          <li><button className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer font-outline" onClick={handleLogout}>LOG OUT</button></li>
+        <img
+          src={logo}
+          alt="DocMorris Logo"
+          className="max-w-48 w-full my-2 ml-2 drop-shadow-[0_1px_0px_black]"
+        />
+        <ul
+          className={`flex flex-col gap-2 lg:flex lg:flex-row lg:gap-10 lg:h-fit transition-h duration-500 ease-in-out text-xl px-4 mr-4 font-medium font-outline ${
+            isMobile ? "h-48" : "h-0"
+          }`}
+        >
+          <li>
+            <NavLink
+              to="/home"
+              className={({ isActive }) =>
+                isActive
+                  ? "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer text-primary-content"
+                  : "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
+              }
+            > HOME </NavLink>
+          </li>
+          <li>
+            <a
+              href="/dashboard"
+              className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
+            > DASHBOARD </a>
+          </li>
+          <li>
+            <Link to="" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer" onClick={() => document.getElementById('add-activity-modal').showModal()}>ADD
+              ACTIVITY</Link></li>
+          <li>
+            <a
+              href="#"
+              className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
+            > NAVLINK 4 </a>
+          </li>
+          <li>
+            <button
+              className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer font-outline"
+              onClick={handleLogout}
+            >
+              LOG OUT
+            </button>
+          </li>
         </ul>
       </div>
 
