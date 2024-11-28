@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navigation from './Navigation.jsx';
 import { useUser } from '../contexts/UserContext.jsx';
-import logo from '/DocMorris_Logo_11.2020.svg';
+import logo from '/DocMorris_Logo_APOTHEKE.svg';
 
 const Header = () => {
   const [scrollY, setScrollY] = useState(0);
