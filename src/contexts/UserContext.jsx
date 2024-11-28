@@ -25,17 +25,22 @@ export function UserProvider({ children }) {
   async function handleLogin(username, password) {
 
     const options = {
-      method: 'POST',
-      url: 'https://render-fastapi-bff.onrender.com/' + '/api/auth/login',
+      url: 'https://render-fastapi-bff.onrender.com/' + 'auth/token',
       data: {
         username: username,
         password: password,
       },
+      config:{
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      },
     }
 
-    axios.post(options.url, options.data)
+    axios.post(options.url, options.data, options.config)
     .then((response) => {
-      saveLocalStorage('userStorage', [{ id: response.data.user.id, email: response.data.user.email, token: response.data.token }]);
+      saveLocalStorage('userStorage', [{ id: 1, email: "someemail@live.de", token: response.data }]);
       toast.success('Successfully signed in!');
       setUser(true);
     })
@@ -43,6 +48,7 @@ export function UserProvider({ children }) {
       toast.error('Please check your credentials!', error)
     });
   }
+
 
   function handleLogout() {
     const localStorage = getLocalStorage('userStorage');

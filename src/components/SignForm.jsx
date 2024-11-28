@@ -39,7 +39,7 @@ const SignForm = () => {
       <form className="card-body" onSubmit={handleSubmit}>
         <h3 className="font-bold text-2xl text-center">Sign in!</h3>
         <div className="signform-input">
-          <input id="signform-email" name="email" type="email" autoComplete="email" required value={email} onChange={handleChange} />
+          <input id="signform-email" name="email" type="text" autoComplete="email" required value={email} onChange={handleChange} />
           <label htmlFor="signform-email"> Enter your Email </label>
         </div>
         <div className="signform-input">
