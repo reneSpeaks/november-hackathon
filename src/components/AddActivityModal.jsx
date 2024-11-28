@@ -7,18 +7,20 @@ const AddActivityModal = () => {
 
   function handleActivities() {
     const options = {
-      url: import.meta.env.BACKEND + '/data/activity/all',
+      url: import.meta.env.VITE_BACKEND + '/data/activity/all',
       data: {
         headers: {
+          'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJSZW5lIiwiZXhwIjoxNzM1MzgzMTM5fQ.YCtjJkmctc0Z4B96_C8BMWLwN7YmybupybMep4krJVI',
           'Access-Control-Allow-Origin' : '*',
           'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
         },
       },
     };
 
-    axios.get("http://127.0.0.1:8000/data/activity/all", options.data)
+    axios.get(options.url, options.data)
     .then((response) => {
       toast.success('Successfull got the activities');
+      console.log(options.url)
       console.log("blub");
       console.log(response.data);
       // setActivities();
