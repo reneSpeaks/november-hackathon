@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import { useLogout } from '../contexts/UserContext.jsx';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navigation = ({ logo }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,7 +20,7 @@ const Navigation = ({ logo }) => {
         <ul className={`flex flex-col gap-2 lg:flex lg:flex-row lg:gap-10 lg:h-fit transition-h duration-500 ease-in-out text-xl px-4 mr-4 font-medium font-outline ${isMobile ? "h-48" : "h-0"}`}>
           <li><NavLink to="/home" className={({ isActive }) => isActive ? "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer text-primary-content" : "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"}>HOME</NavLink></li>
           <li><a href="#" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer">NAVLINK 2</a></li>
-          <li><a href="#" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer">NAVLINK 3</a></li>
+          <li><Link to="" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer" onClick={()=>document.getElementById('add-activity-modal').showModal()}>ADD ACTIVITY</Link></li>
           <li><a href="#" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer">NAVLINK 4</a></li>
           <li><button className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer font-outline" onClick={handleLogout}>LOG OUT</button></li>
         </ul>
