@@ -24,6 +24,7 @@ const Leaderboard = () => {
 
     axios.get(options.url, options.config)
     .then((response) => {
+      console.log(response.data.users)
       setEmployees(response.data.users)
     })
     .catch((error) => {
@@ -47,7 +48,7 @@ const Leaderboard = () => {
               </thead>
               <tbody>
               {employees && (employees.map((user) => (
-                <tr key={user.user.id} className="hover:bg-green-200">
+                <tr key={user.user.user_id} className="hover:bg-green-200">
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
