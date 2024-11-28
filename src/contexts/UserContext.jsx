@@ -22,13 +22,13 @@ export function UserProvider({ children }) {
   const isStored = localStorage.length !== 0;
   const [user, setUser] = useState(() => isStored);
 
-  async function handleLogin(email, password) {
+  async function handleLogin(username, password) {
 
     const options = {
       method: 'POST',
-      url: 'http://localhost:3001' + '/api/auth/login',
+      url: 'https://render-fastapi-bff.onrender.com/' + '/api/auth/login',
       data: {
-        email: email,
+        username: username,
         password: password,
       },
     }
