@@ -74,7 +74,7 @@ const AddActivityModal = () => {
       console.log(response);
     })
     .catch((error) => {
-      // toast.error('There has been an error.', error);
+      toast.error('There has been an error.', error);
     });
   };
 
