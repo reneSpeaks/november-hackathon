@@ -1,67 +1,36 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import { getLocalStorage } from '../utils/storage.js';
 
 const Leaderboard = () => {
+  const [employees, setEmployees] = useState([]);
 
-  const users = [
-    {
-      user : {
-        user_id: 1,
-        username: "Rene",
-        email: "rene@example.com",
-        user_avatar: "https://img.daisyui.com/images/profile/demo/2@94.webp",
-        user_country: "Germany",
-        team_name: "Zemlak, Daniel and Leannon",
-        job_name: "Desktop Support Technician",
+  useEffect(() => {
+
+    const localStorage = getLocalStorage('userStorage');
+
+    const options = {
+      url: 'https://render-fastapi-bff.onrender.com/' + 'data/total_score/get',
+      config:{
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Bearer ' + localStorage[0].token.access_token,
+        },
       },
-      total_points: 12345678,
-    },
-    {
-      user: {
-        user_id: 2,
-        username: "Biernard",
-        email: "biernard@example.com",
-        user_avatar: "https://img.daisyui.com/images/profile/demo/3@94.webp",
-        user_country: "Brazil",
-        team_name: "Carroll Group",
-        job_name: "Tax Accountant",
-      },
-      total_points: 12345677,
-    },
-    {
-      user: {
-        user_id: 3,
-        username: "Tim",
-        email: "biernard@example.com",
-        user_avatar: "https://img.daisyui.com/images/profile/demo/4@94.webp",
-        user_country: "Brazil",
-        team_name: "Carroll Group",
-        job_name: "Organizational Talent",
-      },
-      total_points: 12345676,
-    },
-    {
-      user: {
-        user_id: 4,
-        username: "Choncha",
-        user_avatar: "https://img.daisyui.com/images/profile/demo/5@94.webp",
-        user_country: "Thailand",
-        team_name: "Wyman-Ledner",
-        job_name: "Community Outreach Specialist",
-      },
-      total_points: 12345675,
-    },
-    {
-      user: {
-        user_id: 5,
-        username: "Farbod",
-        user_avatar: "https://img.daisyui.com/images/profile/demo/1@94.webp",
-        user_country: "Germany",
-        team_name: "Carroll Group",
-        job_name: "Office Assistant I",
-      },
-      total_points: 12345674,
-    },
-  ];
+    }
+
+    axios.get(options.url, options.config)
+    .then((response) => {
+      console.log(response.data.users)
+      setEmployees(response.data.users)
+    })
+    .catch((error) => {
+      toast.error('There has been an error!', error)
+    });
+  }, []);
 
   return (
     <section id="leaderboard" className="hero">
@@ -78,7 +47,7 @@ const Leaderboard = () => {
               </tr>
               </thead>
               <tbody>
-              {users && (users.map((user) => (
+              {employees && (employees.map((user) => (
                 <tr key={user.user.user_id} className="hover:bg-green-200">
                   <td>
                     <div className="flex items-center gap-3">
@@ -98,7 +67,7 @@ const Leaderboard = () => {
                   <td className="hidden md:block">
                     {user.user.team_name} <br /> <span className="badge badge-primary badge-sm">{user.user.job_name}</span>
                   </td>
-                  <td>{user.total_points}</td>
+                  <td>{user.total_score}</td>
                 </tr>
               )))}
               </tbody>
