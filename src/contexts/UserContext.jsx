@@ -18,7 +18,7 @@ export function useLogout() {
 }
 
 export function UserProvider({ children }) {
-  const localStorage = getLocalStorage(import.meta.env.VITE_USERSTORAGE);
+  const localStorage = getLocalStorage('userStorage');
   const isStored = localStorage.length !== 0;
   const [user, setUser] = useState(() => isStored);
 
@@ -26,7 +26,7 @@ export function UserProvider({ children }) {
 
     const options = {
       method: 'POST',
-      url: import.meta.env.VITE_API_URL + '/api/auth/login',
+      url: 'http://localhost:3001' + '/api/auth/login',
       data: {
         email: email,
         password: password,
@@ -35,7 +35,7 @@ export function UserProvider({ children }) {
 
     axios.post(options.url, options.data)
     .then((response) => {
-      saveLocalStorage(import.meta.env.VITE_USERSTORAGE, [{ id: response.data.user.id, email: response.data.user.email, token: response.data.token }]);
+      saveLocalStorage('userStorage', [{ id: response.data.user.id, email: response.data.user.email, token: response.data.token }]);
       toast.success('Successfully signed in!');
       setUser(true);
     })
@@ -45,8 +45,8 @@ export function UserProvider({ children }) {
   }
 
   function handleLogout() {
-    const localStorage = getLocalStorage(import.meta.env.VITE_USERSTORAGE);
-    removeFromStorage(import.meta.env.VITE_USERSTORAGE, localStorage[0]);
+    const localStorage = getLocalStorage('userStorage');
+    removeFromStorage('userStorage', localStorage[0]);
     toast.warning('Successfully signed out!');
     setUser(false);
   }
