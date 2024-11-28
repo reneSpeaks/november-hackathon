@@ -1,10 +1,10 @@
-import { FaTasks } from "react-icons/fa"
-import { RiTeamFill } from "react-icons/ri"
-import { IoMdSettings } from "react-icons/io"
-import { GrProjects } from "react-icons/gr"
-import { CgProfile } from "react-icons/cg"
-import { IoInformationCircleOutline, IoLogOutOutline } from "react-icons/io5"
-import { useCollapse } from "react-collapsed"
+import { FaTasks } from "react-icons/fa";
+import { RiTeamFill } from "react-icons/ri";
+import { IoMdSettings } from "react-icons/io";
+import { GrProjects } from "react-icons/gr";
+import { CgProfile } from "react-icons/cg";
+import { IoInformationCircleOutline, IoLogOutOutline } from "react-icons/io5";
+import { useCollapse } from "react-collapsed";
 
 const data = [
   {
@@ -63,49 +63,34 @@ const data = [
       id: "12345abc-c16c-4c7a-a1bd-1fbb9d26abcd",
     },
   },
-]
+];
 
 const Dashboard = () => {
-  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse()
+  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
   return (
     <section
       id="hero"
-      className="w-full h-full bg-base-200 min-h-screen px-4"
-      style={{ backgroundImage: "url(https://picsum.photos/1280/900)" }}
+      className="w-full h-full bg-base-200 min-h-screen px-4 justify-center items-center"
     >
-      <div className="container p-10 h-screen mt-7 flex gap-5">
+      <div className="container p-10 h-screen mt-7 flex gap-5 justify-self-center">
         <div className="lefside w-[15%] bg-white opacity-85 border rounded-xl shadow-lg mr-8 p-4 flex flex-col gap-5 place-items-center place-content-between">
           <div>
             <h1>LOGO</h1>
           </div>
           <div className="flex flex-col justify-between items-center gap-5">
-            <a className="flex justify-center items-center gap-3" href="#">
-              <GrProjects />
-              Projects
-            </a>
+            <a className="flex justify-center items-center gap-3" href="#"> <GrProjects /> Projects </a>
 
-            <a className="flex justify-center items-center gap-3" href="#">
-              <FaTasks />
-              Tasks
-            </a>
+            <a className="flex justify-center items-center gap-3" href="#"> <FaTasks /> Tasks </a>
 
-            <a className="flex justify-center items-center gap-3" href="#">
-              <RiTeamFill />
-              Team
-            </a>
-            <a className="flex justify-center items-center gap-3" href="#">
-              <IoMdSettings />
-              Settings
-            </a>
+            <a className="flex justify-center items-center gap-3" href="#"> <RiTeamFill /> Team </a>
+            <a className="flex justify-center items-center gap-3" href="#"> <IoMdSettings /> Settings </a>
           </div>
           <div>
             <div className="flex justify-center items-center gap-3 text-sm">
-              <IoInformationCircleOutline />
-              Help & Information
+              <IoInformationCircleOutline /> Help & Information
             </div>
             <div className="flex justify-center items-center gap-3 text-sm">
-              <IoLogOutOutline />
-              Log out
+              <IoLogOutOutline /> Log out
             </div>
           </div>
         </div>
@@ -147,9 +132,8 @@ const Dashboard = () => {
               </div>
               <div>
                 <button {...getToggleProps()}>Progress</button>
-                <div
-                  {...getCollapseProps()}
-                  className="grid grid-cols-2 xl:grid-cols-2 bg-gray-200 rounded-lg"
+                <div{...getCollapseProps()}
+                    className="grid grid-cols-2 xl:grid-cols-2 bg-gray-200 rounded-lg"
                 >
                   {data.map((data) => (
                     <div className="flex gap-5 m-3 p-4" id={data.user_id}>
@@ -181,7 +165,7 @@ const Dashboard = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

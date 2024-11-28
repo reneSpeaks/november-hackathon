@@ -37,10 +37,14 @@ const Navigation = ({ logo }) => {
             > HOME </NavLink>
           </li>
           <li>
-            <a
-              href="/dashboard"
-              className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
-            > DASHBOARD </a>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive
+                  ? "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer text-primary-content"
+                  : "menu-item hover:after:scale-x-100 inline-block relative cursor-pointer"
+              }
+            > DASHBOARD </NavLink>
           </li>
           <li>
             <Link to="" className="menu-item hover:after:scale-x-100 inline-block relative cursor-pointer" onClick={() => document.getElementById('add-activity-modal').showModal()}>ADD
@@ -64,8 +68,7 @@ const Navigation = ({ logo }) => {
 
       <button className="flex flex-row lg:hidden items-center justify-center self-start mt-5 mr-8 gap-2 text-xl font-medium cursor-pointer font-outline" onClick={toggleMenu}>
         <div className="swap swap-rotate drop-shadow-[0_1px_0px_black]">
-          <input ref={checkBoxRef} type="checkbox" />
-          <FaBars className="swap-off fill-current" />
+          <input ref={checkBoxRef} type="checkbox" /> <FaBars className="swap-off fill-current" />
           <FaXmark className="swap-on fill-current" />
         </div>
       </button>
